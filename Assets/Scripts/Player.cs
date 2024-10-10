@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float toX = Mathf.Clamp(mousePos.x, -4 ,4);  //마우스좌표
+        float toX = Mathf.Clamp(mousePos.x, -3.8f ,4);  //마우스좌표
         transform.position = new Vector3(toX, 4, 0); //플레이어 움직임
 
         if (Input.GetMouseButtonDown(0) && drop_enable == true) {  //마우스 버튼 누름
