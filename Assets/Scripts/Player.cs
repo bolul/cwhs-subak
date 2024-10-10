@@ -15,18 +15,17 @@ public class Player : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(mousePos.x, 4, 0);
+        float toX = Mathf.Clamp(mousePos.x, -4 ,4);  //마우스좌표
+        transform.position = new Vector3(toX, 4, 0); //플레이어 움직임
 
-        if (Input.GetMouseButtonDown(0)) {
-		spawned = Instantiate(spawnObject, new Vector3(mousePos.x, 4, 0), Quaternion.identity);
+        if (Input.GetMouseButtonDown(0)) {  //마우스 버튼 누름
+		spawned = Instantiate(spawnObject, new Vector3(toX, 4, 0), Quaternion.identity);  //
 	} else if (Input.GetMouseButtonUp(0)) {
 		spawned.GetComponent<Rigidbody2D>().gravityScale = 3;
 	}
-    
     }
 
 }
