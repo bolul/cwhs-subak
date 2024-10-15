@@ -5,7 +5,8 @@ using UnityEngine.TextCore.Text;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] GameObject spawnObject;
+    [SerializeField] GameObject spawnObject; 
+    [SerializeField] List<GameObject> spawnObjectList = new List<GameObject>();
     GameObject spawned;
 
     private bool drop_enable = true; //수박 떨구기 가능여부 변수
@@ -26,6 +27,9 @@ public class Player : MonoBehaviour
         //마우스 클릭 파트 (수박 떨구기)
         if (Input.GetMouseButtonDown(0) && drop_enable == true)  //마우스 클릭 and 가능여부가 참
         {  
+            int spawnIdx = Random.Range(0, 3);
+            spawnObject = spawnObjectList[spawnIdx];
+
             spawned = Instantiate(spawnObject, new Vector3(toX, 4, 0), Quaternion.identity);  //플레이어 위치에 새로운 개체 생성
             drop_enable = false; //가능여부를 거짓으로
             StartCoroutine(Cooldown());  //이뮬래이터 쿨타임 시작하기
