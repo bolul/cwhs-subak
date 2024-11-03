@@ -9,7 +9,6 @@ public class Fruit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int MyId = gameObject.GetInstanceID();
     }
 
     // Update is called once per frame
@@ -22,11 +21,15 @@ public class Fruit : MonoBehaviour
     {   
         string MyTag = gameObject.tag;
         if (collision.gameObject.CompareTag(MyTag)){
+            if (int.Parse(MyTag) >= 2) return;
+             
             if (collision.gameObject.GetInstanceID() < gameObject.GetInstanceID()){
             Debug.Log("충돌함.");
-            Destroy(collision.gameObject);
+            ContactPoint2D contact = collision.contacts[0];
+            Vector2 pos = contact.point;
+            GameObject.Find("Player").GetComponent<Player>().MakeFruit(pos.x, pos.y, int.Parse(gameObject.tag) + 1);
             }
-            
+            Destroy(collision.gameObject);
         }
 
         

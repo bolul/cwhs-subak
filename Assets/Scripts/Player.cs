@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] GameObject spawnObject; 
     [SerializeField] List<GameObject> spawnObjectList = new List<GameObject>();
+    public int maxIndex = 3;
     GameObject spawned;
 
     private bool drop_enable = true; //수박 떨구기 가능여부 변수
@@ -47,4 +48,13 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(drop_cooltime); //쿨타임 기다린 후 기다린 후 
         drop_enable = true;  // 가능여부 참으로 전환
     }
+
+    
+    public void MakeFruit(float xPos,float yPos, int Idx){
+            int spawnIdx = Idx;
+            spawnObject = spawnObjectList[spawnIdx];
+
+            spawned = Instantiate(spawnObject, new Vector3(xPos, yPos, 0), Quaternion.identity);  //플레이어 위치에 새로운 개체 생성
+    }
+
 }
