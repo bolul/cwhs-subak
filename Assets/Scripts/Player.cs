@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.TextCore.Text;
 
 public class Player : MonoBehaviour
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     private bool drop_enable = true; //수박 떨구기 가능여부 변수
 
     [SerializeField] private float drop_cooltime = 1f;  //수박 떨구는 쿨타임
+
     void Start()
     {
 
