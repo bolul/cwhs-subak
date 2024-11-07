@@ -50,11 +50,12 @@ public class Player : MonoBehaviour
     }
 
     
-    public void MakeFruit(float xPos,float yPos, int Idx){
-            int spawnIdx = Idx;
-            spawnObject = spawnObjectList[spawnIdx];
+    public void MakeFruit(float xPos,float yPos, int Idx){  //과일 생성 함수(합쳐질때)
+            int spawnIdx = Idx; //스폰인덱스를 매개변수 인덱스로 설정
+            spawnObject = spawnObjectList[spawnIdx]; //인덱스를 통한 몇번째 과일인가?
 
-            spawned = Instantiate(spawnObject, new Vector3(xPos, yPos, 0), Quaternion.identity);  //플레이어 위치에 새로운 개체 생성
+            spawned = Instantiate(spawnObject, new Vector3(xPos, yPos, 0), Quaternion.identity);
+              //매개변수 위치에 새로운 개체 생성
     }
 
 }
