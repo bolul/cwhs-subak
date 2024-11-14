@@ -27,7 +27,7 @@ public class Fruit : MonoBehaviour
             Debug.Log("충돌함.");
             ContactPoint2D contact = collision.contacts[0]; //콘택트 변수
             Vector2 pos = contact.point; //충돌지점을 가져온다!!
-            GameObject.Find("Player").GetComponent<Player>().MakeFruit(pos.x, pos.y, int.Parse(gameObject.tag) + 1);
+            GameObject.Find("Player").GetComponent<Player>().UpgradeFruit(pos.x, pos.y, int.Parse(gameObject.tag) + 1);
             }
             Destroy(collision.gameObject);
         }

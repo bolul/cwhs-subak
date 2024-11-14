@@ -8,16 +8,19 @@ public class Player : MonoBehaviour
 {
     [SerializeField] GameObject spawnObject; 
     [SerializeField] List<GameObject> spawnObjectList = new List<GameObject>();
-    public int maxIndex = 3;
+    [SerializeField] private float drop_cooltime = 3f;  //수박 떨구는 쿨타임
     GameObject spawned;
+    GameObject upgradedSpawned;
 
+    public int maxIndex = 3;
     private bool drop_enable = true; //수박 떨구기 가능여부 변수
 
-    [SerializeField] private float drop_cooltime = 1f;  //수박 떨구는 쿨타임
 
     void Start()
     {
-
+        int spawnIdx = Random.Range(0, 3);
+        MakeFruit(0, 4, spawnIdx);
+        // 제일 처음 과일을 생성해 논다.
     }
 
     void Update()
@@ -26,36 +29,47 @@ public class Player : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //마우스 좌표 변수 선언
         float toX = Mathf.Clamp(mousePos.x, -3.8f, 4);  //마우스좌표 제한시킨 변수 선언
         transform.position = new Vector3(toX, 4, 0); //플레이어 움직임
+        if (drop_enable == true)
+        {
+            spawned.transform.position = transform.position;
+        }
+        
 
         //마우스 클릭 파트 (수박 떨구기)
         if (Input.GetMouseButtonDown(0) && drop_enable == true)  //마우스 클릭 and 가능여부가 참
         {  
-            int spawnIdx = Random.Range(0, 3);
-            spawnObject = spawnObjectList[spawnIdx];
-
-            spawned = Instantiate(spawnObject, new Vector3(toX, 4, 0), Quaternion.identity);  //플레이어 위치에 새로운 개체 생성
-            drop_enable = false; //가능여부를 거짓으로
-            StartCoroutine(Cooldown());  //이뮬래이터 쿨타임 시작하기
+            // drop_enable = false; //가능여부를 거짓으로
+            // StartCoroutine(Cooldown());  //이뮬래이터 쿨타임 시작하기
         }
-        else if (Input.GetMouseButtonUp(0)) //마우스를 놓음
+        else if (Input.GetMouseButtonUp(0) && drop_enable == true) //마우스를 놓음
         {
-            spawned.GetComponent<Rigidbody2D>().gravityScale = 3;  //중력을 3으로 조정
+            drop_enable = false;
+
+            StartCoroutine(SpawnCooldown());
+            //이뮬래이터 쿨타임 시작하기
         }
     }
 
-    IEnumerator Cooldown()
+    IEnumerator SpawnCooldown()
     {
         yield return new WaitForSeconds(drop_cooltime); //쿨타임 기다린 후 기다린 후 
+        int spawnIdx = Random.Range(0, 3);
+        MakeFruit(transform.position.x, transform.position.y, spawnIdx);
         drop_enable = true;  // 가능여부 참으로 전환
     }
 
     
-    public void MakeFruit(float xPos,float yPos, int Idx){  //과일 생성 함수(합쳐질때)
-            int spawnIdx = Idx; //스폰인덱스를 매개변수 인덱스로 설정
-            spawnObject = spawnObjectList[spawnIdx]; //인덱스를 통한 몇번째 과일인가?
+    public void UpgradeFruit(float xPos,float yPos, int Idx){
+            int spawnIdx = Idx;
+            spawnObject = spawnObjectList[spawnIdx];
 
-            spawned = Instantiate(spawnObject, new Vector3(xPos, yPos, 0), Quaternion.identity);
-              //매개변수 위치에 새로운 개체 생성
+            upgradedSpawned = Instantiate(spawnObject, new Vector3(xPos, yPos, 0), Quaternion.identity);  //플레이어 위치에 새로운 개체 생성
+    }
+    public void MakeFruit(float xPos,float yPos, int Idx){
+            int spawnIdx = Idx;
+            spawnObject = spawnObjectList[spawnIdx];
+
+            spawned = Instantiate(spawnObject, new Vector3(xPos, yPos, 0), Quaternion.identity);  //플레이어 위치에 새로운 개체 생성
     }
 
 }
