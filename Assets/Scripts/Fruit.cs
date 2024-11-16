@@ -25,6 +25,7 @@ public class Fruit : MonoBehaviour
              
             if (collision.gameObject.GetInstanceID() < gameObject.GetInstanceID()){ //하나만 실행되게!!
             Debug.Log("충돌함.");
+            GameManager.instance.IncreaseScore();
             ContactPoint2D contact = collision.contacts[0]; //콘택트 변수
             Vector2 pos = contact.point; //충돌지점을 가져온다!!
             GameObject.Find("Player").GetComponent<Player>().UpgradeFruit(pos.x, pos.y, int.Parse(gameObject.tag) + 1);
