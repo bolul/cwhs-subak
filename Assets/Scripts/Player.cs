@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float drop_cooltime = 3f;  //수박 떨구는 쿨타임
     GameObject spawned;
     GameObject upgradedSpawned;
+    Rigidbody2D rb;
 
     public int maxIndex = 3;
     private bool drop_enable = true; //수박 떨구기 가능여부 변수
@@ -52,6 +53,8 @@ public class Player : MonoBehaviour
 
     IEnumerator SpawnCooldown()
     {
+        rb = spawned.GetComponent<Rigidbody2D>();
+        rb.gravityScale = 1.5f;
         yield return new WaitForSeconds(drop_cooltime); //쿨타임 기다린 후 기다린 후 
         int spawnIdx = Random.Range(0, 3);
         MakeFruit(transform.position.x, transform.position.y, spawnIdx);
@@ -64,6 +67,8 @@ public class Player : MonoBehaviour
             spawnObject = spawnObjectList[spawnIdx];
 
             upgradedSpawned = Instantiate(spawnObject, new Vector3(xPos, yPos, 0), Quaternion.identity);  //플레이어 위치에 새로운 개체 생성
+            upgradedSpawned.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
+
     }
     public void MakeFruit(float xPos,float yPos, int Idx){
             int spawnIdx = Idx;
