@@ -21,9 +21,9 @@ public class Fruit : MonoBehaviour
     {   //과일 충돌 로직!
         string MyTag = gameObject.tag;  //게임오브젝트 태그 불러옴
         if (collision.gameObject.CompareTag(MyTag)){  //태그가 동일할 경우에 (같은 과일일경우)
-            if (int.Parse(MyTag) >= 2) return;          //여기 중요함!!!!!!!!!!!!!!!!!!!!!!! 최댓값!
+            if (int.Parse(MyTag) >= 2) return;          // 태그가 최대 이상이면 종료
              
-            if (collision.gameObject.GetInstanceID() < gameObject.GetInstanceID()){ //하나만 실행되게!!
+            if (collision.gameObject.GetInstanceID() < gameObject.GetInstanceID()){ //하나만 실행되게
             Debug.Log("충돌함.");
             GameManager.instance.IncreaseScore();
             ContactPoint2D contact = collision.contacts[0]; //콘택트 변수
