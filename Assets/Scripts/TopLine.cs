@@ -18,13 +18,13 @@ public class TopLine : MonoBehaviour
        drop_enable = player.drop_enable;
     }
 
-    void OnTriggerStay2D(Collider2D other) {
-       // 탑 라인 충돌 로직
-       Debug.Log("탑 라인과 충돌");
-       if (player.drop_enable == true){  //태그가 동일할 경우에 (같은 과일일경우)
-          GameManager.instance.SetGameOver();
-       } 
-    }
+   //  void OnTriggerStay2D(Collider2D other) {
+   //     // 탑 라인 충돌 로직
+   //     Debug.Log("탑 라인과 충돌");
+   //     if (player.drop_enable == true){  
+   //        GameManager.instance.SetGameOver();
+   //     } 
+   //  }
     
     
 }

@@ -3,18 +3,41 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
+
 public class Fruit : MonoBehaviour
 {
+
+    private float deathTime;
+    private bool isFinished;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer=GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.transform.position.y >= 2 && gameObject.transform.position.y < 4)
+        {
+            deathTime += Time.deltaTime;
+        }
+        else 
+        {
+            deathTime = 0;
+            spriteRenderer.color = new Color(1,1,1);
+        }
+        if (deathTime > 2)
+           {
+               spriteRenderer.color = new Color(0.9f,0.2f,0.2f);
+           }
+
+           if (deathTime > 5)
+           {
+               GameManager.instance.SetGameOver();
+           }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -32,8 +55,6 @@ public class Fruit : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
-
-        
     }
 }
 
