@@ -773,7 +773,15 @@ MonoBehaviour:
   - {fileID: 6834703751685247435, guid: 88953e843783beb4a937bd34de09f385, type: 3}
   - {fileID: 357562236043288175, guid: 29e4e26d03bea794fa856ec98d45c6c9, type: 3}
   - {fileID: 3182089098418630666, guid: e1d820ee51ebbe5418a9d87abedda9f3, type: 3}
-  drop_cooltime: 1
+  - {fileID: 3182089098418630666, guid: 14a12488b8f321f48ba868a0f4806b9c, type: 3}
+  - {fileID: 6662002366966966730, guid: c073a30a72373424daefbffa26e1c130, type: 3}
+  - {fileID: 714781661610792621, guid: 596f5fb653daa4f439eb19ec4888a400, type: 3}
+  - {fileID: 6351861403638720670, guid: 5a14e8e51571b6d489e2e4a8f5b7e4bf, type: 3}
+  - {fileID: 2721218486181915756, guid: bd5bfc95708969f41a3f56e56b73e6ff, type: 3}
+  - {fileID: 3397717058273192176, guid: b8075d5729534ab45b44574314889d36, type: 3}
+  - {fileID: 3423805850026027197, guid: 28dd53907e7a29740a955e1b9b45f062, type: 3}
+  - {fileID: 646142349236162745, guid: ba20e7d42df2ea741bc61a1e1efbd15a, type: 3}
+  drop_cooltime: 0.7
   maxIndex: 3
   drop_enable: 1
 --- !u!212 &549584155

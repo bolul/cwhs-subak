@@ -9,12 +9,14 @@ public class Fruit : MonoBehaviour
 
     private float deathTime;
     private bool isFinished;
+    Color color;
     SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer=GetComponent<SpriteRenderer>();
+        color = spriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class Fruit : MonoBehaviour
         else 
         {
             deathTime = 0;
-            spriteRenderer.color = new Color(1,1,1);
+            spriteRenderer.color = color;
         }
         if (deathTime > 2)
            {
@@ -44,7 +46,7 @@ public class Fruit : MonoBehaviour
     {   //과일 충돌 로직!
         string MyTag = gameObject.tag;  //게임오브젝트 태그 불러옴
         if (collision.gameObject.CompareTag(MyTag)){  //태그가 동일할 경우에 (같은 과일일경우)
-            if (int.Parse(MyTag) >= 2) return;          // 태그가 최대 이상이면 종료
+            if (int.Parse(MyTag) >= 10) return;          // 태그가 최대 이상이면 종료
              
             if (collision.gameObject.GetInstanceID() < gameObject.GetInstanceID()){ //하나만 실행되게
             Debug.Log("충돌함.");

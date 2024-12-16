@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        int spawnIdx = Random.Range(0, 3);
+        int spawnIdx = Random.Range(0, 4);
         MakeFruit(0, 4, spawnIdx);
         // 제일 처음 과일을 생성해 논다.
     }
