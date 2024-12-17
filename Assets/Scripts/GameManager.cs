@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-    public void IncreaseScore() {
-        score += 1;
+    public void IncreaseScore(int fruitIdx) {
+        score += (fruitIdx+1)*(fruitIdx+2)/2;
         text.SetText(score.ToString());
         Debug.Log(score);
     }
