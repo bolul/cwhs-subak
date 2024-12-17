@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
     IEnumerator SpawnCooldown()
     {
         rb = spawned.GetComponent<Rigidbody2D>();
-        rb.gravityScale = 1.5f;
+        rb.gravityScale = 3.5f;
         cc = spawned.GetComponent<CircleCollider2D>();
         cc.isTrigger = false;
 
