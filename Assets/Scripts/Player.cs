@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     {
         //마우스 좌표 움직임 파트
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //마우스 좌표 변수 선언
-        float toX = Mathf.Clamp(mousePos.x, -3.8f, 4);  //마우스좌표 제한시킨 변수 선언
+        float toX = Mathf.Clamp(mousePos.x, -2.8f, 2.8f);  //마우스좌표 제한시킨 변수 선언
         transform.position = new Vector3(toX, 4, 0); //플레이어 움직임
         if (drop_enable == true)
         {
