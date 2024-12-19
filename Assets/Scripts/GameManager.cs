@@ -8,14 +8,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     [SerializeField]
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI InGameScoreText;
+    [SerializeField]
+    private TextMeshProUGUI ScoreText;
 
     [SerializeField]
     private GameObject gameOverPanel;
-    private int score = 0;
 
     [HideInInspector]
     public bool isGameOver = false;
+    private int score = 0;
 
     void Awake() {
         if (instance == null)
@@ -24,9 +26,12 @@ public class GameManager : MonoBehaviour
         }
     }
     public void IncreaseScore(int fruitIdx) {
-        score += (fruitIdx+1)*(fruitIdx+2)/2;
-        text.SetText(score.ToString());
-        Debug.Log(score);
+        if (isGameOver == false)
+        {
+            score += (fruitIdx+1)*(fruitIdx+2)/2;
+            InGameScoreText.SetText(score.ToString());
+            Debug.Log(score);
+        }
     }
     public void SetGameOver() {
         isGameOver = true;
@@ -35,6 +40,7 @@ public class GameManager : MonoBehaviour
     }
     void ShowGameOverPanel() {
         gameOverPanel.SetActive(true);
+        ScoreText.SetText(score.ToString());
     }
     public void PlayAgain() {
         SceneManager.LoadScene("SampleScene");
