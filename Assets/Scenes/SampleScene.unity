@@ -770,7 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 3191556063485819151, guid: 53b0197aca5180742a19cdcd590f6115, type: 3}
   spawnObjectList:
-  - {fileID: 6834703751685247435, guid: 53b0197aca5180742a19cdcd590f6115, type: 3}
+  - {fileID: 6834703751685247435, guid: 88953e843783beb4a937bd34de09f385, type: 3}
   - {fileID: 357562236043288175, guid: 29e4e26d03bea794fa856ec98d45c6c9, type: 3}
   - {fileID: 3182089098418630666, guid: e1d820ee51ebbe5418a9d87abedda9f3, type: 3}
   - {fileID: 3182089098418630666, guid: 14a12488b8f321f48ba868a0f4806b9c, type: 3}
@@ -1642,7 +1642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1361746685
 RectTransform:
   m_ObjectHideFlags: 0
