@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public bool setTimer = false;
     private int score = 0;
     private float playTime = 0f;
+    private int playMin = 0;
+    private int playSec = 0;
 
     void Update()
     {
@@ -55,20 +57,15 @@ public class GameManager : MonoBehaviour
         if (isGameOver == false) animator.SetTrigger("Playpanel");
         isGameOver = true;
         Invoke("ShowGameOverPanel", 1f);
-
-        
-        
     }
     void ShowGameOverPanel() {
         gameOverPanel.SetActive(true);
         ScoreText.SetText(score.ToString());
-<<<<<<< Updated upstream
-        PlayTimeText.SetText(playTime.ToString());
+        playMin = (int)playTime / 60;
+        playSec = (int)playTime % 60;
+        PlayTimeText.SetText(playMin.ToString()+"M      "+playSec.ToString()+"S");
         Debug.Log(playTime);
         setTimer = false;
-=======
-        
->>>>>>> Stashed changes
     }
     public void gotomenu() {
         SceneManager.LoadScene("Mainscene");

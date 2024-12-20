@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 363522049}
   - component: {fileID: 363522048}
   m_Layer: 5
-  m_Name: 'PlayTimeText '
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 521, y: -10}
+  m_AnchoredPosition: {x: 578.3, y: -10}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363522048
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 3191556063485819151, guid: 53b0197aca5180742a19cdcd590f6115, type: 3}
   spawnObjectList:
-  - {fileID: 6834703751685247435, guid: 53b0197aca5180742a19cdcd590f6115, type: 3}
+  - {fileID: 6834703751685247435, guid: 88953e843783beb4a937bd34de09f385, type: 3}
   - {fileID: 357562236043288175, guid: 29e4e26d03bea794fa856ec98d45c6c9, type: 3}
   - {fileID: 3182089098418630666, guid: e1d820ee51ebbe5418a9d87abedda9f3, type: 3}
   - {fileID: 3182089098418630666, guid: 14a12488b8f321f48ba868a0f4806b9c, type: 3}
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   animator: {fileID: 1361746688}
   InGameScoreText: {fileID: 1161891020}
   ScoreText: {fileID: 55956490}
-  PlayTimeText: {fileID: 363522048}
+  PlayTimeText: {fileID: 1307130462}
   gameOverPanel: {fileID: 1361746684}
   isGameOver: 0
   setTimer: 0
@@ -1915,12 +1915,12 @@ GameObject:
   - component: {fileID: 1307130463}
   - component: {fileID: 1307130462}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: 'PlayTimeText '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1307130461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1937,7 +1937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 278, y: -5}
+  m_AnchoredPosition: {x: 323.6, y: -5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307130462
@@ -2070,13 +2070,13 @@ RectTransform:
   m_Children:
   - {fileID: 483956906}
   - {fileID: 55956489}
+  - {fileID: 1307130461}
   - {fileID: 363522047}
   - {fileID: 823469791}
   - {fileID: 2052480149}
   - {fileID: 1532413884}
   - {fileID: 243723364}
   - {fileID: 136411107}
-  - {fileID: 1307130461}
   m_Father: {fileID: 1107955541}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
