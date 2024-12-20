@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private Animator animator;
+
     public static GameManager instance = null;
     [SerializeField]
     private TextMeshProUGUI InGameScoreText;
@@ -49,18 +52,33 @@ public class GameManager : MonoBehaviour
         setTimer = true;
     }
     public void SetGameOver() {
+        if (isGameOver == false) animator.SetTrigger("Playpanel");
         isGameOver = true;
         Invoke("ShowGameOverPanel", 1f);
+
+        
         
     }
     void ShowGameOverPanel() {
         gameOverPanel.SetActive(true);
         ScoreText.SetText(score.ToString());
+<<<<<<< Updated upstream
         PlayTimeText.SetText(playTime.ToString());
         Debug.Log(playTime);
         setTimer = false;
+=======
+        
+>>>>>>> Stashed changes
     }
-    public void PlayAgain() {
-        SceneManager.LoadScene("SampleScene");
+    public void gotomenu() {
+        SceneManager.LoadScene("Mainscene");
+    }
+
+    public void rankingbutton() {
+        
+    }
+
+    public void playrecord() {
+        
     }
 }

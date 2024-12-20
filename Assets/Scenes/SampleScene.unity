@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 3191556063485819151, guid: 53b0197aca5180742a19cdcd590f6115, type: 3}
   spawnObjectList:
-  - {fileID: 6834703751685247435, guid: 88953e843783beb4a937bd34de09f385, type: 3}
+  - {fileID: 6834703751685247435, guid: 53b0197aca5180742a19cdcd590f6115, type: 3}
   - {fileID: 357562236043288175, guid: 29e4e26d03bea794fa856ec98d45c6c9, type: 3}
   - {fileID: 3182089098418630666, guid: e1d820ee51ebbe5418a9d87abedda9f3, type: 3}
   - {fileID: 3182089098418630666, guid: 14a12488b8f321f48ba868a0f4806b9c, type: 3}
@@ -1294,7 +1294,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 932941812}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayAgain
+        m_MethodName: gotomenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1439,6 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec72ff2564367d48af4fb64915412f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1361746688}
   InGameScoreText: {fileID: 1161891020}
   ScoreText: {fileID: 55956490}
   PlayTimeText: {fileID: 363522048}
@@ -2047,6 +2048,7 @@ GameObject:
   - component: {fileID: 1361746685}
   - component: {fileID: 1361746687}
   - component: {fileID: 1361746686}
+  - component: {fileID: 1361746688}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -2064,7 +2066,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.56, y: 0.876, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 483956906}
   - {fileID: 55956489}
@@ -2120,6 +2122,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361746684}
   m_CullTransparentMesh: 1
+--- !u!95 &1361746688
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361746684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02f09bd7514fd944dbe20f92526be707, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1515422274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,7 +2304,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 932941812}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayAgain
+        m_MethodName: playrecord
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2497,7 +2520,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 932941812}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayAgain
+        m_MethodName: rankingbutton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
