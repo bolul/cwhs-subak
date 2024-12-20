@@ -1441,8 +1441,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InGameScoreText: {fileID: 1161891020}
   ScoreText: {fileID: 55956490}
+  PlayTimeText: {fileID: 363522048}
   gameOverPanel: {fileID: 1361746684}
   isGameOver: 0
+  setTimer: 0
 --- !u!4 &932941813
 Transform:
   m_ObjectHideFlags: 0
@@ -1917,7 +1919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1307130461
 RectTransform:
   m_ObjectHideFlags: 0

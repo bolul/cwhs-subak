@@ -16,7 +16,8 @@ public class Lobbyui : MonoBehaviour
     {
         
     }
-    public void Gamestartbutton()
+
+public void Gamestartbutton()
 
 {
     SceneManager.LoadScene("SampleScene");

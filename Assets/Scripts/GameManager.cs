@@ -11,13 +11,24 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI InGameScoreText;
     [SerializeField]
     private TextMeshProUGUI ScoreText;
-
+    [SerializeField]
+    private TextMeshProUGUI PlayTimeText;
     [SerializeField]
     private GameObject gameOverPanel;
 
     [HideInInspector]
     public bool isGameOver = false;
+    public bool setTimer = false;
     private int score = 0;
+    private float playTime = 0f;
+
+    void Update()
+    {
+        if (setTimer == true)
+        {
+            playTime += Time.deltaTime;
+        }
+    }
 
     void Awake() {
         if (instance == null)
@@ -33,6 +44,10 @@ public class GameManager : MonoBehaviour
             Debug.Log(score);
         }
     }
+    public void SetTimer() {
+        // 타이머 시작
+        setTimer = true;
+    }
     public void SetGameOver() {
         isGameOver = true;
         Invoke("ShowGameOverPanel", 1f);
@@ -41,6 +56,9 @@ public class GameManager : MonoBehaviour
     void ShowGameOverPanel() {
         gameOverPanel.SetActive(true);
         ScoreText.SetText(score.ToString());
+        PlayTimeText.SetText(playTime.ToString());
+        Debug.Log(playTime);
+        setTimer = false;
     }
     public void PlayAgain() {
         SceneManager.LoadScene("SampleScene");
