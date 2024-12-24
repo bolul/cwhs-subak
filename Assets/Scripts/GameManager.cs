@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
         {
             score += (fruitIdx+1)*(fruitIdx+2)/2;
             InGameScoreText.SetText(score.ToString());
-            Debug.Log(score);
         }
     }
     public void SetTimer() {
@@ -64,18 +63,17 @@ public class GameManager : MonoBehaviour
         playMin = (int)playTime / 60;
         playSec = (int)playTime % 60;
         PlayTimeText.SetText(playMin.ToString()+"M      "+playSec.ToString()+"S");
-        Debug.Log(playTime);
         setTimer = false;
     }
-    public void gotomenu() {
+    public void MenuButtonClick() {
         SceneManager.LoadScene("Mainscene");
     }
 
-    public void rankingbutton() {
+    public void RankingButtonClick() {
         
     }
 
-    public void playrecord() {
-        
+    public void PlayRecordButtonClick() {
+        Debug.Log("Play 기록됨");
     }
 }

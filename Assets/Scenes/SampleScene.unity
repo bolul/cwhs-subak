@@ -1294,7 +1294,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 932941812}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: gotomenu
+        m_MethodName: MenuButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2304,7 +2304,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 932941812}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: playrecord
+        m_MethodName: PlayRecordButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2520,7 +2520,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 932941812}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: rankingbutton
+        m_MethodName: RankingButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
