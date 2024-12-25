@@ -50,11 +50,10 @@ public class Fruit : MonoBehaviour
             if (fruitIdx >= 10) return;          // 태그가 최대 이상이면 종료 (합체 x)
              
             if (collision.gameObject.GetInstanceID() < gameObject.GetInstanceID()){ //하나만 실행되게
-            Debug.Log("충돌함.");
-            GameManager.instance.IncreaseScore(fruitIdx);
-            ContactPoint2D contact = collision.contacts[0]; //콘택트 변수
-            Vector2 pos = contact.point; //충돌지점을 가져온다!!
-            GameObject.Find("Player").GetComponent<Player>().UpgradeFruit(pos.x, pos.y, int.Parse(gameObject.tag) + 1);
+                GameManager.instance.IncreaseScore(fruitIdx);
+                ContactPoint2D contact = collision.contacts[0]; //콘택트 변수
+                Vector2 pos = contact.point; //충돌지점을 가져온다!!
+                GameObject.Find("Player").GetComponent<Player>().UpgradeFruit(pos.x, pos.y, int.Parse(gameObject.tag) + 1);
             }
             Destroy(collision.gameObject);
         }
