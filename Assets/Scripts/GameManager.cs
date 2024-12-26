@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,9 +18,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI PlayTimeText;
     [SerializeField]
+    private TextMeshProUGUI RankingText;
+    [SerializeField]
     private GameObject gameOverPanel;
-
-    [HideInInspector]
+    [SerializeField]
+    private GameObject rankingPanel;
+    [SerializeField]
+    private TMP_InputField NameInputField;
+    [SerializeField]
     public bool isGameOver = false;
     public bool isSaved = false; // 랭킹에 저장되었는지 확인
     public bool setTimer = false;
@@ -111,13 +117,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void RankingButtonClick() {
-        // idx 0 ~ idx 5까지 출력
+        rankingPanel.SetActive(true);
+        string str = "";// idx 0 ~ idx 5까지 출력
         for (int i = 0; i < 5; i++)
         {
-            Debug.Log(PlayerPrefs.GetString(i+"n")+" : "+PlayerPrefs.GetInt(i+"s"));
+           str +=  $"  {i + 1}.      {PlayerPrefs.GetString(i+"n")}                                    {PlayerPrefs.GetInt(i+"s")}\n";
+           
         }
-        // 현재 자신의 점수 출력
-        Debug.Log("나 : "+PlayerPrefs.GetInt("currentScore"));
+        str += $"\n           현재 "+PlayerPrefs.GetString("currentName")+"의 점수는?!     "+PlayerPrefs.GetInt("currentScore")+"\n";
+        RankingText.SetText(str);// 현재 자신의 점수 출력
+
+
+
     }
 
     public void PlayRecordButtonClick() {
@@ -129,8 +140,29 @@ public class GameManager : MonoBehaviour
         }
 
         // 저장안됨 ->
-        Debug.Log("랭킹에 등록할 이름 입력 -> gunho");
-        SetRanking();
+        NameInputField.gameObject.SetActive(true);
         isSaved = true;
+        
     }
-}
+    public void RankingExitbutton() {
+        rankingPanel.SetActive(false);
+    }
+
+    public void SubmitName()
+    {
+        currentName = NameInputField.text;
+
+        // 입력값이 유효한지 확인 (최대 5글자로 제한)
+        if (currentName.Length > 3)
+        {
+            currentName = currentName.Substring(0, 3);
+        }
+
+        Debug.Log($"입력된 이름: {currentName}");
+
+        // 입력창 비활성화
+        NameInputField.gameObject.SetActive(false);
+        SetRanking();
+    }
+}   
+
