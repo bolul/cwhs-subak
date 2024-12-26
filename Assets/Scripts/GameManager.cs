@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
            str +=  $"  {i + 1}.      {PlayerPrefs.GetString(i+"n")}                                    {PlayerPrefs.GetInt(i+"s")}\n";
            
         }
-        str += $"\n           현재 "+PlayerPrefs.GetString("currentName")+"의 점수는?!     "+PlayerPrefs.GetInt("currentScore")+"\n";
+        str += $"\n           현재 나의 점수는?!            "+PlayerPrefs.GetInt("currentScore")+"\n";
         RankingText.SetText(str);// 현재 자신의 점수 출력
 
 
@@ -135,7 +135,6 @@ public class GameManager : MonoBehaviour
         // 이미 저장됨 ->
         if (isSaved == true)
         {
-            Debug.Log("이미 저장됨.");
             return;
         }
 
